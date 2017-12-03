@@ -1,0 +1,464 @@
+@import url("reset.css");
+body{
+  background-color: #282C34;
+  font-family: Tahoma;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+
+a:visited{
+  color: grey;
+}
+
+h2{
+  color: white;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.main-section{
+  width: 100vw;
+}
+
+/*=================
+signup.php mostly
+=================*/
+
+
+.signup-main{
+  margin-top: 1em;
+}
+
+.signup-container{
+  width: 50%;
+  max-width: 400px;
+  background-color: #21252B;
+  margin: 0 auto;
+  padding: 1em;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.signup-form{
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.signup-form input {
+    width: 90%;
+    height: 30px;
+    padding: 0px 5%;
+    margin-bottom: 4px;
+    border: none;
+    background-color: #fff;
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #111;
+    line-height: 40px;
+}
+
+/*=================
+most of the post classes mostly
+=================*/
+
+
+.post-main{
+  margin-top: 1em;
+}
+
+.post-content h2{
+  margin-bottom: 1em;
+}
+
+.post-content p{
+  margin: 1em;
+  color: white;
+}
+
+.post-title{
+  width: 90%;
+  margin-bottom: 1em;
+}
+.post-container{
+  width: 50%;
+  max-width: 400px;
+  background-color: #21252B;
+  margin: 0 auto;
+  padding: 1em;
+  text-align:center;
+  vertical-align:middle;
+  border: 1px solid black;
+}
+
+.post-form{
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.post-form input {
+    width: 90%;
+    height: 30px;
+    padding: 0px 5%;
+    margin-bottom: 4px;
+    border: none;
+    background-color: #fff;
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #111;
+    line-height: 40px;
+}
+
+div.thread-content{
+  width: 100%;
+  max-width: 1330px;;
+  /*height: 100vh;*/
+  margin: 0 auto;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+div.thread-view{
+  width: 100%;
+  height: auto;
+  column-width: auto;/*
+  background-color: green;*/
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;}
+
+div.post-view{
+/*  break-before: column;*/
+  break-inside: avoid-column;
+  break-after: avoid-column;
+  margin-top: 1px;
+  margin: 0 auto;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+  width: 100%;
+  max-width: 1260px;
+  min-height: 3em;
+  height: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.infoholder-view{
+  border: 1px solid black;
+  background-color: #282C34;
+  border-top-left-radius: 10px;
+
+}
+
+
+.forum-view{
+  margin-top: 1em;
+  padding-bottom: 2em;
+  width: 100%;
+  height: auto;
+  column-width: auto;
+  background-color: white;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.forum-thread{
+  width: 90%;
+  height: auto;
+  min-height: 3em;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0 auto;
+  column-width: auto;
+  background-color: white;
+  margin-top: 1em;
+  border: 1px solid black;
+}
+
+.threadtitle-view{
+  background-color: lightgrey;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 2.5em;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.threadTitleC{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.forum-title{
+  background-color: lightgrey;
+}
+
+.forum-owner{
+  border: 1px solid black;
+  background-color: #282C34;
+  border-top-left-radius: 10px;
+  color: white;
+}
+
+.forum-owner a{
+  color: white;
+}
+
+.front-img{
+  margin: 3px;
+  width: 180px;
+  height: auto;
+
+}
+
+.author-view{
+  font-size: 11px;
+  color: white;
+  padding-left: 1.5em;
+  padding-top: .5em;
+  font-weight: bold;
+}
+
+.postdate-view{
+  font-size: 11px;
+  color: white;
+  padding-left: 1.5em;
+  padding-top: 1em;
+}
+
+.memberText-view{
+  font-size: 11px;
+  font-style: italic;
+  color: white;
+  padding-left: 1.5em;
+  padding-top: .5em;
+}
+
+.postreply{
+  padding: 1em;
+}
+
+
+
+/*=================
+Profile.php mostly
+=================*/
+
+.profile-content{
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 100%;
+  max-width: 1450px;
+  /*height: 100vh;*/
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  background-color: white;
+}
+
+.profile-topflex{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-threads{
+  margin-top: 1em;
+  width: 70%;
+  /*height: 100vh;*/
+  margin: 0 auto;
+  background-color: green;
+}
+
+.profile-view{
+  margin: 1em;
+  padding-bottom: 2em;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  column-width: auto;
+  background-color: white;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.profile-settings{
+  margin: 1em;
+  padding-bottom: 2em;
+  width: 30%;
+  height: auto;
+  column-width: auto;
+  background-color: white;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-info{
+  padding: 1em;
+}
+
+.profile-posts{
+  width: 70%;
+  /*height: 100vh;*/
+  margin: 0 auto;
+  background-color: white;
+}
+
+/* used on the forum page also*/
+.avatar-view{
+  width: auto;
+  height: auto;
+  max-width: 150px;
+  max-height: 150px;
+  margin: 1em;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.text{
+  padding: 1em;
+  font-size: 12px;
+}
+
+.content{
+  width: 99vw;
+
+}
+
+/*=================
+  Header
+=================*/
+
+
+.nav-text{
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.navboi{
+  display: flex;
+  background-color: #536079;
+  align-items: center;
+  width: auto;
+}
+
+.navboi a{
+  color: white;
+}
+
+.nav-login{
+
+ /*top:0px;*/
+}
+
+.navboi li {
+  cursor: pointer;
+  text-align: center;
+
+}
+
+.nav-logo {
+  margin-left: auto;
+  margin-right: auto
+}
+
+
+
+.nav-button {
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+  background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+  max-height: 32px;
+}
+
+.nav-button:hover {
+  background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color:#bc3315;
+}
+.nav-button:active {
+	position:relative;
+	top:1px;
+}
+
+/*=================
+ modal message box stolen from w3 schools
+=================*/
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: auto;
+    max-width: 500px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

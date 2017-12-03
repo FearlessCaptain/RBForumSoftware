@@ -1,0 +1,371 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,hr,menu,nav,section{display:block}a,hr{padding:0}abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:0 0}ins,mark{background-color:#ff9;color:#000}body{line-height:1}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}a{margin:0;font-size:100%;vertical-align:baseline;background:0 0}ins{text-decoration:none}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{height:1px;border:0;border-top:1px solid #ccc;margin:1em 0}input,select{vertical-align:middle}
+/*Above is minified CSS from HTML5 Doctor.*/
+
+p, label, a{
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 16px;
+}
+
+h1{
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 20px;
+}
+
+h2{
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 16px;
+}
+
+/*Strip the ul of padding and list styling*/
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+}
+/*Create a horizontal list with spacing*/
+li {
+    display:inline-block;
+    float: left;
+    margin-right: 1px;
+
+
+}
+/*Style for menu links*/
+li a {
+    display:block;
+    min-width:70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 37px;
+    text-align: center;
+    line-height: 37px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+    background: #E60B0B;
+    text-decoration: none;
+}
+/*Hover state for top level links*/
+li:hover a {
+    background: #980C0C;
+}
+/*Style for dropdown links*/
+li:hover ul a {
+    background: #f3f3f3;
+    color: #2f3036;
+    height: 40px;
+    line-height: 40px;
+}
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+    background: #19c589;
+    color: #fff;
+}
+
+/*Display the dropdown on hover*/
+ul li a:hover + .hidden, .hidden:hover {
+    display: block;
+}
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    text-decoration: none;
+    color: #fff;
+    background: ##710202;
+    border-bottom: 1px white;
+    text-align: center;
+    padding: 11px 0;
+    display: none;
+}
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+/*Responsive Styles*/
+@media screen and (max-width : 760px){
+    /*Make dropdown links appear inline*/
+    ul {
+        position: static;
+        display: none;
+        border: 1px;
+    }
+    /*Create vertical spacing*/
+    li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    ul li, li a {
+        width: 100%;
+    }
+    /*Display 'show menu' link*/
+    .show-menu {
+        display:block;
+
+    }
+}
+
+#buttoncontain{
+  margin: 0 auto;
+  width: 100%;
+  height: 37px;
+  background-color: #E60B0B;
+  margin-bottom: 1em;
+}
+
+#centerfix{
+  height: 37px;
+  max-width: 761px;
+  display: block;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 8px;
+
+}
+
+div.top{
+	width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo{
+	height: 100px;
+	width: auto;
+  padding: 10px;
+}
+
+#smalllogo{
+	height: 80px;
+	width: auto;
+}
+
+#textwrap{
+  max-width: 400px;
+  padding: 10px;
+}
+
+div.body{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+div.content{
+  margin-top: 1em;
+	display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+	width: 70%;
+}
+
+div.portrait{
+	vertical-align: center;
+  display: inline-block;
+  text-align: center;
+  width: 165px;
+}
+
+div.portrait.img {
+  width: 150px;
+  height: auto;
+}
+
+.caption {
+  display: block;
+}
+
+
+
+.textblock{
+  max-width: 900px;
+}
+
+/*
+@media screen and (max-width : 760px){
+  .textblock{
+    width: 100%;
+  }
+
+}
+*/
+
+/*Page Specific Classes/IDs*/
+
+.redtext{
+	color: red;
+	border: 1em;
+}
+
+.divlink{
+	background-color: white;
+	display: flex;
+}
+.divlink p{
+	margin-top: 0.5em;
+}
+
+.google-maps {
+  position: relative;
+  padding-bottom: 75%; // This is the aspect ratio
+  height: 0;
+  overflow: hidden;
+}
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+div.contactcontainer{
+	display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 100%;
+  flex-wrap: wrap;
+
+}
+
+#contact{
+  margin: 10px;
+  /*
+	display:flex;
+	flex-direction:column;
+	text-align: left;
+	font-family:Arial;
+	font-size:12px;
+	text-decoration:none;
+
+	width: 60%;
+*/
+}
+
+#directions{
+  width: 100%;
+
+}
+
+#contactinside{
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+	font-family:Arial;
+	font-size:12px;
+	text-decoration:none;
+	background-color:#DFDFDF;
+	width: 60%;
+	min-width: 300px;
+	box-shadow: 3px 3px 5px #888888;
+}
+
+#contactinside p{
+	font-family:Arial;
+	font-size:14px;
+	text-decoration:none;
+}
+
+#contactinside p{
+	margin: 6px;
+}
+
+#contactemail{
+	margin-bottom: 10px;
+}
+
+#contactiframe{
+	box-shadow: 3px 3px 5px #888888;
+}
+
+
+
+.tablinks1 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #56f556;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #56f556;
+	box-shadow:inset 0px 1px 0px 0px #56f556;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #00bf06), color-stop(1, #00a60b));
+	background:-moz-linear-gradient(top, #00bf06 5%, #00a60b 100%);
+	background:-webkit-linear-gradient(top, #00bf06 5%, #00a60b 100%);
+	background:-o-linear-gradient(top, #00bf06 5%, #00a60b 100%);
+	background:-ms-linear-gradient(top, #00bf06 5%, #00a60b 100%);
+	background:linear-gradient(to bottom, #00bf06 5%, #00a60b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00bf06', endColorstr='#00a60b',GradientType=0);
+	background-color:#00bf06;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #137513;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #168026;
+}
+.tablinks1:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #00a60b), color-stop(1, #00bf06));
+	background:-moz-linear-gradient(top, #00a60b 5%, #00bf06 100%);
+	background:-webkit-linear-gradient(top, #00a60b 5%, #00bf06 100%);
+	background:-o-linear-gradient(top, #00a60b 5%, #00bf06 100%);
+	background:-ms-linear-gradient(top, #00a60b 5%, #00bf06 100%);
+	background:linear-gradient(to bottom, #00a60b 5%, #00bf06 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00a60b', endColorstr='#00bf06',GradientType=0);
+	background-color:#00a60b;
+}
+.tablinks1:active {
+	position:relative;
+	top:1px;
+}
+
+
+.tablinks2 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f55858;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f55858;
+	box-shadow:inset 0px 1px 0px 0px #f55858;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bd0000), color-stop(1, #a60000));
+	background:-moz-linear-gradient(top, #bd0000 5%, #a60000 100%);
+	background:-webkit-linear-gradient(top, #bd0000 5%, #a60000 100%);
+	background:-o-linear-gradient(top, #bd0000 5%, #a60000 100%);
+	background:-ms-linear-gradient(top, #bd0000 5%, #a60000 100%);
+	background:linear-gradient(to bottom, #bd0000 5%, #a60000 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bd0000', endColorstr='#a60000',GradientType=0);
+	background-color:#bd0000;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #731313;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #801717;
+}
+.tablinks2:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #a60000), color-stop(1, #bd0000));
+	background:-moz-linear-gradient(top, #a60000 5%, #bd0000 100%);
+	background:-webkit-linear-gradient(top, #a60000 5%, #bd0000 100%);
+	background:-o-linear-gradient(top, #a60000 5%, #bd0000 100%);
+	background:-ms-linear-gradient(top, #a60000 5%, #bd0000 100%);
+	background:linear-gradient(to bottom, #a60000 5%, #bd0000 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a60000', endColorstr='#bd0000',GradientType=0);
+	background-color:#a60000;
+}
+.tablinks2:active {
+	position:relative;
+	top:1px;
+}
