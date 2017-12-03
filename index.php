@@ -12,6 +12,7 @@
 			}
 			?>
 		<img class="front-img" src="https://i.imgur.com/srCKVyr.jpg">
+		<?php header('Location: forum.php'); ?>
 	</div>
 </section>
 
