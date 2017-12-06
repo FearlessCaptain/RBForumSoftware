@@ -4,7 +4,7 @@ include_once 'includes\deleteThread-inc.php';
 
 // load threads for the main forum page
 // id here refers to the thread id
-function getAllThreads($conn, $role){
+function getAllThreads($conn, $role = 0){
 
   if ($role > 3){
     $sql = "SELECT * FROM Threads";
@@ -95,7 +95,7 @@ function getComment($conn, $postid){
 
 // echos the posts of a given threadID
 // id here refers to the id of a comment in a thread
-function getThread($conn, $threadID, $role){
+function getThread($conn, $threadID, $role = 0){
 
   // load ALL comments for mega admin and above
   // break down of roles:
@@ -105,6 +105,7 @@ function getThread($conn, $threadID, $role){
     $sql = "SELECT * FROM Posts WHERE ThreadID = '$threadID'";
   } else {
     $sql = "SELECT * FROM Posts WHERE ThreadID = '$threadID' AND Deleted = '0'";
+    // exclude posts marked deleted in the DB
   }
   $result = mysqli_query($conn, $sql);
   //$row = mysqli_fetch_assoc($result);
@@ -135,7 +136,7 @@ function getThread($conn, $threadID, $role){
 
 // echos the posts of a users
 // used on the profile page
-function getPostsByUID($conn, $id, $role){
+function getPostsByUID($conn, $id, $role = 0){
 
   // load ALL comments for mega admin and above
   // break down of roles:
@@ -159,7 +160,7 @@ function getPostsByUID($conn, $id, $role){
         <p class="memberText-view">'. getFlavorText($conn, $row['OwnerID']).'</p>
         </div>
         <p class="text">'.$row['Body'].'</p>';
-        
+
     // so mods can delete posts
     if ($role > 1 && $row['Deleted'] == 0){
       echo '<a href="deletePost.php?postid='.$row['ID'].'">DELETE THIS</a>';

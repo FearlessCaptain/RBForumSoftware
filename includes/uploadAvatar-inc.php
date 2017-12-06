@@ -38,7 +38,7 @@ if (isset($_POST['submitAvatar'])) {
         // resize image here...
 
 
-    
+
         if ($fileExtLower == 'gif' and $fileSize < 700000){
         } else {
           ak_img_resize($fileDestination,$fileDestination,150,150);
@@ -52,7 +52,7 @@ if (isset($_POST['submitAvatar'])) {
         print_r($result);
 
         if ($result == 1){
-        // header("Location: ../profile.php?userid=".$userid."&error=newavatarsuccess");
+        header("Location: ../profile.php?userid=".$userid."&error=newavatarsuccess");
           exit();
         }
         exit();

@@ -3,12 +3,6 @@
 <section class="thread-container">
 	<div class="thread-content">
 
-		<?php
-		 	if (!isset($_SESSION['u_username'])){
-				header("Location: index.php?error=logintoaccess");
-			}
-			?>
-
 			<div class="thread-view">
 
 				<div class="threadtitle-view">
@@ -19,8 +13,12 @@
 
 				<br>
 
-				<?php
+				<?php if (isset($_SESSION['u_id'])) {
 					getThread($conn, $_GET['threadid'], $_SESSION['u_role']);
+				} else {
+					getThread($conn, $_GET['threadid']);
+				};
+
 				?>
 				<p><a class="nav-button"  href="postreply.php?threadid=<?php echo $_GET['threadid'];?>">Post Reply</a></p>
 			</div>
