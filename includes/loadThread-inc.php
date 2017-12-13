@@ -75,22 +75,29 @@ function getFlavorText($conn, $userid){
 
 // echos just one comment
 function getComment($conn, $postid){
-  $sql = "SELECT Body, Username, PostDate FROM Posts WHERE ID = '$postid'";
+  $sql = "SELECT Body, Username, PostDate, OwnerID FROM Posts WHERE ID = '$postid'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
 //  echo '<p>'$row['owner_name'] $row['body'];
 
   echo '
-    <div class="post-view">
-      <div class="infoholder-view">
-        <img class="avatar-view" src="'.getAvatar($conn, $row['OwnerID']).'">
-        <p class="author-view">'.$row['Username']. ' on '.$row['PostDate'].'</p>
-        <p class="memberText-view">Mold Member</p>
-      </div>
-      <p class="text">'.nl2br($row['Body']).'</p>
+  <div class="post-view">
+    <div class="infoholder-view">
+      <p class="postdate-view">'.$row['PostDate'].'</p>
+      <img class="avatar-view" src=" '. getAvatar($conn, $row['OwnerID']).'">
+      <p class="author-view"><a href="profile.php?userid=' . getIDByUsername($conn, $row['Username']) .'">'.$row['Username'].'</a></p>
+      <p class="author-view">'. getRole($conn, $row['OwnerID']).'</p>
+      <p class="memberText-view">'. getFlavorText($conn, $row['OwnerID']).'</p>
     </div>
-    <br>';
+    <p class="text">'.$row['Body'].'</p><br>';
 
+}
+
+function getIDByUsername ($conn, $username){
+  $sql = "SELECT ID FROM Users WHERE Username = '$username'";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+  return $row['ID'];
 }
 
 // echos the posts of a given threadID
@@ -115,7 +122,7 @@ function getThread($conn, $threadID, $role = 0){
         <div class="infoholder-view">
           <p class="postdate-view">'.$row['PostDate'].'</p>
           <img class="avatar-view" src=" '. getAvatar($conn, $row['OwnerID']).'">
-          <p class="author-view">'.$row['Username'].'</p>
+          <p class="author-view"><a href="profile.php?userid=' . getIDByUsername($conn, $row['Username']) .'">'.$row['Username'].'</a></p>
           <p class="author-view">'. getRole($conn, $row['OwnerID']).'</p>
           <p class="memberText-view">'. getFlavorText($conn, $row['OwnerID']).'</p>
         </div>
@@ -155,7 +162,7 @@ function getPostsByUID($conn, $id, $role = 0){
         <div class="infoholder-view">
         <p class="postdate-view">'.$row['PostDate'].'</p>
         <img class="avatar-view" src=" '. getAvatar($conn, $row['OwnerID']).'">
-        <p class="author-view">'.$row['Username'].'</p>
+        <p class="author-view"><a href="profile.php?userid=' . getIDByUsername($conn, $row['Username']) .'">'.$row['Username'].'</a></p>
         <p class="author-view">'. getRole($conn, $row['OwnerID']).'</p>
         <p class="memberText-view">'. getFlavorText($conn, $row['OwnerID']).'</p>
         </div>

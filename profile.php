@@ -1,5 +1,5 @@
 
-<?php  include_once 'header.php'; include_once 'includes\dbh-inc.php'; include_once 'includes\loadProfile-inc.php'; include_once 'includes\loadThread-inc.php' ?>
+<?php  include_once 'headerProfile.php'; include_once 'includes\dbh-inc.php'; include_once 'includes\loadThread-inc.php' ?>
 
 <section class="thread-container">
 
@@ -18,7 +18,7 @@
 
 			    <a href="changeProfile.php"><h1>Change your info... </h1></a>
 
-			    <a href="changeAvatar.php"><h1><p> </p> Change your profile pic...</h1></a>
+			    <a href="changeAvatar.php"><h1><p> </p> Change your avatar...</h1></a>
 			    </div>';}};
 
 				?>

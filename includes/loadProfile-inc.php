@@ -41,6 +41,12 @@ function getProfileDesc ($conn, $id) {
   $sql = "SELECT Profile FROM Users WHERE ID = '$id'";
   $result = mysqli_query($conn, $sql);
   echo mysqli_fetch_assoc($result)['Profile'];
+}
+
+function getUsername ($conn, $id) {
+  $sql = "SELECT Username FROM Users WHERE ID = '$id'";
+  $result = mysqli_query($conn, $sql);
+  return mysqli_fetch_assoc($result)['Username'];
 
 }
 

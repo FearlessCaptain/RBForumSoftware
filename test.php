@@ -22,3 +22,4 @@ if (!extension_loaded('imagick'))
 
 
 <html>
+<p class="author-view"><a href="profile.php?userid=4">asdfasdf</a></p>

@@ -1,8 +1,7 @@
 <?php
 	session_start();
 	date_default_timezone_set('America/New_York');
-	include_once 'includes\checkErrors-inc.php';
-
+	include_once 'includes\loadProfile-inc.php';
 	/*
 	print_r($_SERVER);
 	if ($_SERVER['QUERY_STRING'] == 'empty'){
@@ -22,7 +21,9 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="css/styles.css">
 	<meta name="theme-color" content="#ffffff">
-	<title>RB Forum</title>
+	<title>RB Forum - <?= getUsername($conn, $_GET['userid']);?>'s Profile</title>
+
+
 
 </head>
 <body>
@@ -34,7 +35,7 @@
 	  <!-- Modal content -->
 	  <div class="modal-content">
 	    <span class="close">&times;</span>
-	    <p><?php echo errorCheck($conn, htmlspecialchars($_GET["error"] )); ?></p>
+	    <p>Some text in the Modal..</p>
 	  </div>
 
 	</div>
