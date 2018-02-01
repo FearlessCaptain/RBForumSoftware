@@ -1,4 +1,5 @@
-<?php  include_once 'header.php'; ?>
+<?php  include_once 'header.php';
+header('Location: forum.php')?>
 
 <section class="main-container">
 	<div class="content">

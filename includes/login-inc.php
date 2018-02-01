@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
   $location = $_POST['location'];
 
   if (empty($username) || empty($pwd)) {
+    echo "2";
 //  if (True) {
     header("Location: ../index.php?login=empty");
     exit();
@@ -30,11 +31,13 @@ if (isset($_POST['submit'])) {
             header("Location: ../index.php?login=pwderror");
             exit();
           } elseif ($hashedPwdCheck == true) {
+
             // login the user if all legit
             $_SESSION['u_id'] =$row['ID'];
             $_SESSION['u_username'] =$row['Username'];
             $_SESSION['u_email'] =$row['ID'];
             $_SESSION['u_role'] =$row['Role'];
+            $_SESSION['u_banned'] = $row['Banned'];
             header("Location: ../". $location );
             exit();
         }
@@ -45,3 +48,4 @@ if (isset($_POST['submit'])) {
   header("Location: ../index.php?login=error");
   exit();
 }
+echo "3";

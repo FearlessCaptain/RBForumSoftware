@@ -1,4 +1,4 @@
-<?php  include_once 'header.php'; include_once 'includes\loadThread-inc.php'; include_once 'includes\dbh-inc.php'; include_once 'includes\deleteThread-inc.php'?>
+<?php  include_once 'header.php'; include_once 'includes/loadThread-inc.php'; include_once 'includes/dbh-inc.php'; include_once 'includes/deleteThread-inc.php'?>
 
 <section class="thread-container">
 	<div class="thread-content">

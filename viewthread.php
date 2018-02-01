@@ -1,10 +1,10 @@
-<?php  include_once 'headerThread.php'; include_once 'includes\dbh-inc.php';?>
+<?php  include_once 'headerThread.php'; include_once 'includes/dbh-inc.php';?>
 <br>
 <section class="thread-container">
 	<div class="thread-content">
 
 			<div class="thread-view">
-
+				<!-- Some functions loaded in the header. (headerThread.php) -->
 				<div class="threadtitle-view">
 					<p class="threadTitleC"><b><?= getTitle($conn, $_GET['threadid']);?></b></p>
 					<p class="threadTitleC"><b>Posted by:</b> <?php getPoster($conn, $_GET['threadid']);?></p>

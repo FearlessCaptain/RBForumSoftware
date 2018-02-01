@@ -1,6 +1,6 @@
 <?php
 
-include_once 'includes\deleteThread-inc.php';
+include_once 'includes/deleteThread-inc.php';
 
 // load threads for the main forum page
 // id here refers to the thread id
@@ -18,7 +18,7 @@ function getAllThreads($conn, $role = 0){
     echo '
 
       <div class="forum-thread">
-        <p class="forum-owner"> Posted by <a href="profile.php?='.$row['OwnerID'].'">' .$row['Username']. '</a> on '.$row['Date'].'</p>
+        <p class="forum-owner"> Posted by <a href="profile.php?userid='.$row['OwnerID'].'">' .$row['Username']. '</a> on '.$row['Date'].'</p>
         <a href="viewthread.php?threadid='.$row['ID'].'">
           <p class="forum-title">'.$row['Title'].'</p>';
 
@@ -120,11 +120,15 @@ function getThread($conn, $threadID, $role = 0){
     echo '
       <div class="post-view">
         <div class="infoholder-view">
+        <div>
           <p class="postdate-view">'.$row['PostDate'].'</p>
           <img class="avatar-view" src=" '. getAvatar($conn, $row['OwnerID']).'">
-          <p class="author-view"><a href="profile.php?userid=' . getIDByUsername($conn, $row['Username']) .'">'.$row['Username'].'</a></p>
+          </div>
+          <div>
+          <p id="author-view" class="author-view"><a href="profile.php?userid=' . getIDByUsername($conn, $row['Username']) .'">'.$row['Username'].'</a></p>
           <p class="author-view">'. getRole($conn, $row['OwnerID']).'</p>
           <p class="memberText-view">'. getFlavorText($conn, $row['OwnerID']).'</p>
+          </div>
         </div>
         <p class="text">'.$row['Body'].'</p>';
     // so mods can delete posts

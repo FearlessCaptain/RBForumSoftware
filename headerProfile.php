@@ -1,14 +1,8 @@
 <?php
 	session_start();
 	date_default_timezone_set('America/New_York');
-	include_once 'includes\loadProfile-inc.php';
-	/*
-	print_r($_SERVER);
-	if ($_SERVER['QUERY_STRING'] == 'empty'){
-		echo '<div class="alert"><span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>Danger!</strong> Indicates a dangerous or potentially negative action.</div>';
-	} else {
-		echo 'ajajnsds';
-	};*/
+	include_once 'includes/loadProfile-inc.php';
+	include_once 'includes/checkErrors-inc.php';
 ?>
 
 <!DOCTYPE HTML>
@@ -16,28 +10,45 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://use.fontawesome.com/5010c9457b.js"></script>
-	<!-- <script src="js/notificationdonttuch.js"></script>-->
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="css/styles.css">
 	<meta name="theme-color" content="#ffffff">
-	<title>RB Forum - <?= getUsername($conn, $_GET['userid']);?>'s Profile</title>
-
-
-
+	<title><?= getUsername($conn, $_GET['userid']);?>'s Profile | RB Forum</title>
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1274764268405150",
+    enable_page_level_ads: true
+  });
+</script>
 </head>
+
 <body>
 <section class="main-section">
 
-	<!-- The Modal -->
 	<div id="myModal" class="modal">
-
-	  <!-- Modal content -->
 	  <div class="modal-content">
 	    <span class="close">&times;</span>
-	    <p>Some text in the Modal..</p>
+	    <p><?php echo errorCheck($conn, htmlspecialchars($_GET["error"] )); ?></p>
 	  </div>
-
 	</div>
 
 <header>
@@ -49,9 +60,11 @@
 			<li><a class="nav-button" href="newthread.php"><i class="fa fa-envelope fa-lg"></i> New Thread</a></li>
 			<li><a class="nav-button" href="forum.php"><i class="fa fa-users fa-lg"></i> Forums</a></li>
 			<li><!-- Trigger/Open The Modal -->
-			<button id="myBtn">Open Modal</button></li>
 			<li class="nav-logo"><i class="fa fa-rocket"></i></li>
 			<?php
+				if ($_SESSION['u_banned'] == 1){
+					header("Location: banned.php");
+				};
 				if (isset($_SESSION['u_id'])) {
 					echo '<li class="nav-text"><p>Welcome&nbsp'.$_SESSION["u_username"].'&nbsp</p></li>';
 					echo '<li><form action="includes/logout-inc.php" method="POST">
@@ -72,6 +85,18 @@
 	</div>
 	</nav>
 	<script>
+// https://css-tricks.com/snippets/javascript/get-url-variables/
+function getQueryVariable(variable)
+{
+	console.log("getVar ran");
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+	   var pair = vars[i].split("=");
+	   if(pair[0] == variable){return pair[1];}
+   }
+   return(false);
+}
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -81,11 +106,11 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-		modal.style.display = "block";
-}
+var query = window.location.search.substring(1);
 
+if (query.indexOf("error") != -1) {
+  modal.style.display = "block";
+}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {

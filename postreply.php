@@ -1,4 +1,4 @@
-<?php  include_once 'header.php'; include_once 'includes\addReply-inc.php'; ?>
+<?php  include_once 'header.php'; include_once 'includes/addReply-inc.php'; include_once 'dbh-inc.php';?>
 
 <section class="thread-container">
 	<div class="thread-content">
@@ -9,7 +9,7 @@
 			}
 			?>
 
-    <?php echo'<form class="postreply" action="'.setReply($_GET['threadid']).'" method="POST">';?>
+    <?php echo'<form class="postreply" action="'.setReply($_GET['threadid'], $conn).'" method="POST">';?>
 			<p>Post reply!</p>
       <input type="hidden" name="username" value="<?php echo $_SESSION['u_username'];?>">
       <input type="hidden" name="id" value="<?php echo $_SESSION['u_id'];?>">

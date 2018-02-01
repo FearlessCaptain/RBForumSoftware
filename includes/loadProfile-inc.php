@@ -1,6 +1,6 @@
 <?php
 
-include_once 'includes\loadThread-inc.php';
+include_once 'includes/loadThread-inc.php';
 
 function getProfile ($conn, $id) {
   $sql = "SELECT * FROM Users WHERE ID = '$id'";

@@ -38,20 +38,22 @@ if (isset($_POST['submitAvatar'])) {
         // resize image here...
 
 
+        echo " blue ";
 
-        if ($fileExtLower == 'gif' and $fileSize < 700000){
-        } else {
-          ak_img_resize($fileDestination,$fileDestination,150,150);
-        };
+        ak_img_resize($fileDestination, $fileDestination, 150, 150, $fileExtLower);
 
-        //$img::destroy();
+
+
+        echo " glue ";
+
         // $sql = "UPDATE users SET Avatar = `".$fileNameNew."`  WHERE ID = "."$userid";
-        $sql = "UPDATE `users` SET `Avatar` = '".$fileNameNew."' WHERE `users`.`ID` = ".$userid;
-      //  echo $sql;
+        $sql = "UPDATE Users SET Avatar = '".$fileNameNew."' WHERE ID = ".$userid;
+        echo $sql;
         $result = mysqli_query($conn, $sql);
         print_r($result);
-
+        echo " after sql ";
         if ($result == 1){
+
         header("Location: ../profile.php?userid=".$userid."&error=newavatarsuccess");
           exit();
         }

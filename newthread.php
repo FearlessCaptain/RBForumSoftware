@@ -24,6 +24,7 @@ include_once 'includes/createthread-inc.php';
 
     <br>
     <h2>Upload image less then 5mb</h2>
+    <h3>Currently doesn't work Will roll into one.</h3>
     <form action="includes/upload-inc.php" method="POST" enctype="multipart/form-data">
       <input type="file" name="file">
       <input type="hidden" name="location" value=" <?= $_GET['threadid'] ?> ">

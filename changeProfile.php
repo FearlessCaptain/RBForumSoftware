@@ -1,5 +1,5 @@
 
-<?php  include_once 'header.php'; include_once 'includes\dbh-inc.php'; include_once 'includes\loadProfile-inc.php'; include_once 'includes\loadThread-inc.php' ?>
+<?php  include_once 'header.php'; include_once 'includes/dbh-inc.php'; include_once 'includes/loadProfile-inc.php'; include_once 'includes/loadThread-inc.php' ?>
 <?php if (!isset($_SESSION['u_username'])){ header("Location: index.php?error=logintoaccess"); } ?>
 
 <section class="thread-container">

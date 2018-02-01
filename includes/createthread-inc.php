@@ -1,5 +1,6 @@
 <?php
-include_once('safeEscape-inc.php');
+include_once 'safeEscape-inc.php';
+include_once 'dbh-inc.php';
 
 function getPostNumber($conn){
   //include_once 'includes/dbh-inc.php';
@@ -12,26 +13,33 @@ function getPostNumber($conn){
 
 // if (isset($_POST['threadSubmit']) == true and $_POST['title'] == true and $_POST['body'] == true) {
 if (isset($_POST['threadSubmit']) ) {
-  if ($_POST['title'] == true or $_POST['comment'] == true){
-    header('Location: newthread.php?error=threaderror');
+  if ($_POST['title'] == false or $_POST['comment'] == false){
+    header('Location: ../newthread.php?error=threaderror');
   }
-
-  include_once 'dbh-inc.php';
 
   // variables from the newthread page
   $username = $_POST['username'];
   $id = $_POST['id'];
-  //  $date = $_POST['date']; // getting the data clientside??? DUURRRRR
+  //  $date = $_POST['date']; // getting the date clientside??? DUURRRRR
   $date = date('Y-m-d H:i:s'); // much better
   $body = escapeBody($conn, $_POST['comment']);
-  // $body = mysqli_real_escape_string($conn, str_replace('\r\n', '', nl2br(htmlspecialchars(strip_tags($_POST['comment'])))));
-  // $body= mysqli_real_escape_string($conn, strip_tags($_POST['comment']));
-  // $title = mysqli_real_escape_string($conn, str_replace('\r\n', '', nl2br(htmlspecialchars($_POST['title']))));
   $title = escapeBody($conn, $_POST['title']);
   $posts = json_encode (array (1 => getPostNumber($conn)));
 
+  if (strlen($title) == 0) {
+    Header("Location: ../newthread.php?error=notitle");
+    exit();
+  }
+
+  if (strlen($body) == 0) {
+    Header("Location: ../newthread.php?error=nobody");
+    exit();
+  }
+
+
+
   // insert some data into the "threads" DB first
-  $sql = "INSERT INTO threads (Title, OwnerID, Username, Posts) VALUES ('$title', '$id', '$username', '$posts')";
+  $sql = "INSERT INTO Threads (Title, OwnerID, Username, Posts, Category) VALUES ('$title', '$id', '$username', '$posts', 'General')";
   $result = mysqli_query($conn, $sql);
 
   if (!$result) { // error check
@@ -46,13 +54,13 @@ if (isset($_POST['threadSubmit']) ) {
 
   // then the rest of the data, like the body of the post, goes into the posts
   // DB. since threads are just arrarys of post IDs things are seperated.
-  $sql = "INSERT INTO Posts (Body, OwnerID, Username, ThreadID) VALUES ('$body', '$id', '$username', '$row[ID]')";
+  $sql = "INSERT INTO Posts (Body, OwnerID, Username, ThreadID, Category) VALUES ('$body', '$id', '$username', '$row[ID]', 'General')";
   $result = mysqli_query($conn, $sql);
 
   if (!$result) { // error check
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-
+  echo $row['ID'];
   // FIX THIS!!!!
   header('Location: ../viewthread.php?threadid='.$row["ID"]);
   exit();
