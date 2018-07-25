@@ -1,7 +1,7 @@
 @import url("reset.css");
 body{
   background-color: #282C34;
-  font-family: Calibri;
+  font-family: Calibri, 'Trebuchet MS', 'Arial', 'Sans Serif';
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -36,6 +36,17 @@ h2{
 .main-section{
   width: 100vw;
 }
+
+#new-thread{
+	color: white;
+	float: right;
+	margin: 1em;
+	margin-top: 0;
+	margin-right: 5%;
+	position: relative;
+	top: -12px;
+}
+
 
 /*=================
 signup.php mostly

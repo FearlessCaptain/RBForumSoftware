@@ -1,4 +1,11 @@
 <?php
+function debug_to_console( $data ) {
+    $output = $data;
+    if ( is_array( $output ) )
+        $output = implode( ',', $output);
+
+    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+}
 
 if (isset($_POST['submit'])) {
 
@@ -46,7 +53,7 @@ if (isset($_POST['submit'])) {
           } else{
 
             if ($pwd != $pwd2){
-              header("Location: ../signup.php?signup=passwordderror");
+              header("Location: ../signup.php?signup=passworderror");
               exit();
 
             } else {
@@ -54,20 +61,23 @@ if (isset($_POST['submit'])) {
               $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
               // Insert the new user into the database
               $date = date('Y-m-d H:i:s');
-              $sql = "INSERT INTO Users (Username, Email, pwd, Role, RoleName, JoinDate, FlavorText, Age, Avatar, Location, Profile, Banned) VALUES ('$username', '$email', '$hashedPwd', '0', 'Mold Member', '$date', 'Texty Text', '1', '5a46f5f04a31a.jpg', 'Secret', 'Secret', '0')";
+              $sql = "INSERT INTO Users (Username, Email, pwd, Role, RoleName, JoinDate, FlavorText, Age, Avatar, Location, Profile, Banned) VALUES ('$username', '$email', '$hashedPwd', '0', 'Mold Member', '$date', 'Texty Text', '1', 'cool.jpg', 'Secret', 'Secret', '0')";
               //mysqli_query($conn, $sql);
-              mysqli_query($conn, $sql);
-              header("Location: ../login.php?signup=success");
-              exit();
+              if (mysqli_query($conn, $sql)){
+                header("Location: ../login.php?signup=success");
+				exit();
+			  } else {
+				 header("Location: ../signup.php?signup=dbfailure" . $sql);
+                 exit();
+			  }
             }
           }
         }
       }
     }
-
   }
-
 } else {
+  debug_to_console("signup failed??");
   header("Location: ../signup.php");
   exit();
 }

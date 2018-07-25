@@ -1,4 +1,4 @@
-<?php  include_once 'header.php'; include_once 'includes/addReply-inc.php'; include_once 'dbh-inc.php';?>
+<?php  include_once 'header.php'; include_once 'includes/addReply-inc.php'; include_once 'includes/dbh-inc.php';?>
 
 <section class="thread-container">
 	<div class="thread-content">

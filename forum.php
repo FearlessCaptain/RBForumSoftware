@@ -4,6 +4,7 @@
 	<div class="thread-content">
 
 			<div class="forum-view">
+				<a id="new-thread" class="nav-button" href="newthread.php"><i class="fa fa-envelope fa-lg"></i> New Thread</a>
 				<div class="forum-topics"><h2 class="forum-topicTitles">General Topics</h2><p class="forum-topics-decsription">For general discusion of any topic. :)</p></div>
 				<?php if (isset($_SESSION['u_id'])) {
 					getAllThreads($conn, $_SESSION['u_role'] );
