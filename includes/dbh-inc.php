@@ -1,9 +1,9 @@
 <?php
 
-$dbServername = "localhost:3306";
-$dbUsername = "kevinglassweb";
-$dbPassword = "Newpass1";
-$dbName = "kevinglassweb_workingtitle2";
+$dbServername = ""; // Your server, usually localhost:someport
+$dbUsername = ""; // Your MySQL login name.
+$dbPassword = ""; // Your MySQL login password.
+$dbName = ""; // DB you are storing your info in.
 
 $conn = mysqli_connect( $dbServername, $dbUsername, $dbPassword, $dbName );
 
